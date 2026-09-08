@@ -94,7 +94,11 @@
   .job .role .co{ color:var(--muted); font-weight:400; }
   .job .meta{ font-size:0.85rem; color:var(--faint); margin-top:0.15rem; }
   .job p.story-p{ color:var(--muted); margin-top:0.75rem; max-width:60ch; line-height:1.65; }
-  .job p.story-p.stat-line{ color:var(--ink); font-weight:500; }
+  .job ul.job-list{ margin:0.85rem 0 0; padding-left:1.1rem; color:var(--muted); max-width:60ch; line-height:1.55; }
+  .job ul.job-list li{ margin-top:0.4rem; }
+  .job ul.job-list li:first-child{ margin-top:0; }
+  .job ul.job-list li::marker{ color:var(--faint); }
+  .job ul.job-list li.stat{ color:var(--ink); font-weight:500; }
   .job .frame-fig{ margin-top:1rem; max-width:340px; }
 
   .earlier{ margin-top:3rem; }
@@ -217,26 +221,38 @@
     <article class="job">
       <p class="role">Growth / Account Executive<span class="co">, Lighthouse</span></p>
       <p class="meta">San Francisco &middot; 2026</p>
-      <p class="story-p">I joined an early stage immigration startup on the GTM side and ended up operating across growth, sales, and sales ops, building the machinery and selling through it myself.</p>
-      <p class="story-p stat-line">Closed <span class="num">$718K</span> across <span class="num">64</span> deals in about four months, with a <span class="num">44%</span> win rate and a <span class="num">$256K</span> peak month.</p>
-      <p class="story-p">I also built <span class="num">10</span> automated GTM workflows across n8n, Apollo, Perplexity, HubSpot, and Instantly, and led five engineers on an AI qualification system that cut manual lead review from roughly five minutes to seconds. Along the way, I landed accounts including Cursor and Thinking Machines Lab.</p>
+      <ul class="job-list">
+        <li>Joined an early stage immigration startup on the GTM side, operating across growth, sales, and sales ops</li>
+        <li class="stat">Closed <span class="num">$718K</span> across <span class="num">64</span> deals in four months (<span class="num">44%</span> win rate, <span class="num">$256K</span> peak month)</li>
+        <li>Built <span class="num">10</span> automated GTM workflows across n8n, Apollo, Perplexity, HubSpot, and Instantly</li>
+        <li>Led five engineers on an AI qualification system that cut lead review from five minutes to seconds</li>
+        <li>Landed accounts including Cursor and Thinking Machines Lab</li>
+      </ul>
       <div class="frame-fig"><div class="frame" style="--ar:16/9"><img src="images/lighthouse.jpg" alt="At an industry conference, repping Lighthouse"></div><figcaption>Industry conference, repping Lighthouse</figcaption></div>
     </article>
 
     <article class="job">
       <p class="role">Product Manager, Payments<span class="co">, JPMorgan Chase</span></p>
       <p class="meta">San Francisco &middot; 2023 – 2026</p>
-      <p class="story-p">I spent three years learning how products get built inside one of the world's largest financial institutions, mostly around developer infrastructure, APIs, onboarding, and payments.</p>
-      <p class="story-p">One of the systems I led helped reduce enterprise integration time from <span class="num">~2 weeks</span> to <span class="num">3 days</span> across <span class="num">4,000+</span> clients. I also worked on onboarding infrastructure supporting <span class="num">2,800+</span> partner ecosystems and analytics spanning <span class="num">500M+</span> API events a month.</p>
-      <p class="story-p">Along the way, I identified <span class="num">~$1.5M</span> in annual platform savings, led a pod of engineers and a designer, and helped secure <span class="num">$2M</span> in continued investment after presenting the work to leadership.</p>
+      <ul class="job-list">
+        <li>Three years in product, mostly developer infrastructure, APIs, onboarding, and payments</li>
+        <li class="stat">Cut enterprise integration time from <span class="num">~2 weeks</span> to <span class="num">3 days</span> across <span class="num">4,000+</span> clients</li>
+        <li>Built onboarding infrastructure for <span class="num">2,800+</span> partner ecosystems and analytics spanning <span class="num">500M+</span> API events a month</li>
+        <li>Found <span class="num">~$1.5M</span> in annual platform savings</li>
+        <li>Led a pod of engineers and a designer</li>
+        <li>Helped secure <span class="num">$2M</span> in continued investment after presenting to leadership</li>
+      </ul>
       <div class="frame-fig"><div class="frame" style="--ar:16/9"><img src="images/jpmc.jpg" alt="Presenting to leadership at JPMorgan"></div><figcaption>Presented output from a 3 month incubator project to senior leaders at JPMorgan, including the CPO</figcaption></div>
     </article>
 
     <article class="job">
       <p class="role">Sales Advisor<span class="co">, Tesla</span></p>
       <p class="meta">Chicago &middot; 2023</p>
-      <p class="story-p">While still in college, I spent two months selling Teslas, mostly to see whether I'd actually enjoy sales.</p>
-      <p class="story-p">Top 25% regionally. About <span class="num">$1.5M</span> in product revenue. Turned out I liked it a lot.</p>
+      <ul class="job-list">
+        <li>Sold Teslas for two months during college, mostly to test whether I'd enjoy sales</li>
+        <li class="stat">Top 25% regionally, about <span class="num">$1.5M</span> in product revenue</li>
+        <li>Turned out I liked it a lot</li>
+      </ul>
       <div class="frame-fig"><div class="frame" style="--ar:16/9"><img src="images/tesla.jpg" alt="With a colleague near Lake Michigan, offering test drives"></div><figcaption>My colleague and I near Lake Michigan, trying to flag down test drives</figcaption></div>
     </article>
 
