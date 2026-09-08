@@ -83,7 +83,7 @@
   @media (min-width:680px){ .useful-grid{ grid-template-columns:repeat(3,1fr); gap:2rem; } }
   .useful-item h3{ font-size:1.05rem; font-weight:600; margin-bottom:0.5rem; }
   .useful-item p{ color:var(--muted); font-size:0.95rem; line-height:1.6; margin:0; max-width:34ch; }
-  .useful-tie{ margin-top:2.25rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--ink); font-weight:500; font-size:1.02rem; max-width:62ch; }
+  .useful-tie{ margin-top:2.5rem; color:var(--ink); font-weight:500; font-size:1.02rem; max-width:62ch; }
 
   /* ---------- selected work ---------- */
   .job{ margin-top:3rem; }
@@ -96,7 +96,7 @@
   .job p.story-p.stat-line{ color:var(--ink); font-weight:500; }
   .job .frame-fig{ margin-top:1rem; max-width:340px; }
 
-  .earlier{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--line); }
+  .earlier{ margin-top:3rem; }
   .earlier-item{ padding-block:0.65rem; }
   .earlier-item .t{ font-weight:600; font-size:0.96rem; }
   .earlier-item .t .co{ font-weight:400; color:var(--muted); }
@@ -105,7 +105,7 @@
 
   /* ---------- things built ---------- */
   .built-intro{ max-width:58ch; color:var(--muted); }
-  .card{ margin-top:2rem; padding-top:1.2rem; border-top:1px solid var(--line); }
+  .card{ margin-top:2.25rem; }
   .card summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:baseline; gap:0.75rem; }
   .card summary::-webkit-details-marker{ display:none; }
   .card h3{ font-weight:600; font-size:1rem; margin:0; }
@@ -117,10 +117,10 @@
   .card .more{ margin-top:0.7rem; }
   .card .more .frame-fig{ margin-top:0.8rem; max-width:380px; }
 
-  .logbook{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--line); }
+  .logbook{ margin-top:3rem; }
   .logbook-sub{ color:var(--muted); font-size:0.92rem; margin:0 0 1.2rem; }
-  .lb-row{ padding-block:0.85rem; border-top:1px solid var(--line); }
-  .lb-row:first-of-type{ border-top:none; padding-top:0; }
+  .lb-row{ padding-block:0.85rem; }
+  .lb-row:first-of-type{ padding-top:0; }
   .lb-row summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:baseline; gap:0.75rem; }
   .lb-row summary::-webkit-details-marker{ display:none; }
   .lb-left{ display:block; }
@@ -129,8 +129,8 @@
   .lb-body{ margin-top:0.6rem; color:var(--muted); font-size:0.92rem; max-width:64ch; }
 
   /* ---------- life ---------- */
-  .life-block{ margin-top:2.75rem; padding-top:2.75rem; border-top:1px solid var(--line); }
-  .life-block:first-of-type{ margin-top:0; padding-top:0; border-top:none; }
+  .life-block{ margin-top:3.5rem; }
+  .life-block:first-of-type{ margin-top:0; }
   .big-line{ font-weight:500; font-size:clamp(1.3rem,2.8vw,1.6rem); line-height:1.4; max-width:26ch; color:var(--ink); }
   .life-block p.body{ margin-top:0.9rem; color:var(--muted); max-width:56ch; }
   .bike-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.6rem; max-width:560px; }
@@ -151,7 +151,6 @@
   .contact-links a.linkedin{ color:#0A66C2; }
   .contact-links a.linkedin:hover{ color:#0A66C2; opacity:0.8; }
   footer{ padding:2rem 1.5rem 3rem; color:var(--faint); font-size:0.85rem; max-width:720px; margin-inline:auto; }
-  footer .foot-line{ max-width:58ch; }
 </style>
 </head>
 <body>
@@ -371,8 +370,7 @@
 </main>
 
 <footer>
-  <p class="foot-line">Based in San Francisco. Usually building something, biking somewhere, traveling, or convincing people to come to a Baltic event.</p>
-  <p style="margin-top:0.6rem;">&copy; <span id="year"></span> Simas Zavistauskas</p>
+  <p>&copy; <span id="year"></span> Simas Zavistauskas</p>
 </footer>
 
 <script>
