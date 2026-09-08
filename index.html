@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simas Zavistauskas</title>
+<meta name="description" content="Growth operator, product builder, serial side project starter. San Francisco.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<style>
+  :root{
+    --bg:#FAFAF7;
+    --ink:#161613;
+    --muted:#6B685F;
+    --faint:#9A9484;
+    --line:#E7E4DB;
+    --accent:#D9A315;
+    --focus:#2B6CB0;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+    html{ scroll-behavior:auto; }
+  }
+  h1,h2,h3,h4{ font-family:inherit; font-weight:600; line-height:1.2; margin:0; text-wrap:balance; color:var(--ink); }
+  a{ color:var(--ink); text-decoration:none; }
+  a:hover{ color:var(--accent); }
+  a:focus-visible, button:focus-visible, summary:focus-visible{ outline:2.5px solid var(--focus); outline-offset:3px; border-radius:2px; }
+  .num{ font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink); }
+  .in{ max-width:720px; margin:0 auto; padding-inline:1.5rem; }
+  @media (max-width:560px){ .in{ padding-inline:1.1rem; } }
+
+  /* ---------- nav (plain, in-flow, no chrome — exact match to sampler) ---------- */
+  .nav{ display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; color:var(--muted); padding-top:2.25rem; }
+  .nav a{ color:var(--muted); text-decoration:none; margin-left:1.2rem; }
+  .nav a:hover{ color:var(--ink); }
+
+  main{ padding-bottom:2rem; }
+  section{ padding-block:3.5rem; }
+  section + section{ border-top:1px solid var(--line); }
+  section h2{ font-size:clamp(1.4rem,2.8vw,1.7rem); }
+  .section-head{ margin-bottom:2.25rem; }
+  .eyebrow{ font-size:0.78rem; letter-spacing:0.04em; color:var(--faint); display:block; margin-bottom:0.5rem; }
+  .dek{ margin-top:0.6rem; color:var(--muted); max-width:58ch; }
+
+  /* ---------- photo frames ---------- */
+  .frame-fig{ margin:0; display:grid; gap:0.55rem; }
+  .frame{ aspect-ratio:var(--ar,4/3); border:1px solid var(--line); border-radius:2px; display:flex; align-items:center; justify-content:center; color:var(--faint); overflow:hidden; }
+  .frame svg{ width:22px; height:22px; opacity:0.7; }
+  .frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .frame-fig figcaption{ font-size:0.85rem; color:var(--faint); }
+
+  /* ---------- hero ---------- */
+  .hero{ display:grid; grid-template-columns:1fr; gap:2rem; padding-bottom:3.25rem; }
+  @media (min-width:680px){ .hero{ grid-template-columns:1.1fr 1fr; align-items:center; gap:2.5rem; } }
+  h2.name{ font-weight:600; font-size:clamp(1.9rem,4.5vw,2.4rem); letter-spacing:-0.01em; margin:2.2rem 0 0; }
+  .headline{ font-size:1.15rem; color:var(--muted); max-width:38ch; margin-top:0.8rem; line-height:1.6; }
+  .ctas{ margin-top:1.4rem; display:flex; gap:1.6rem; flex-wrap:wrap; }
+  .ctas a{ font-size:0.85rem; font-weight:500; color:var(--ink); }
+  .ctas a::after{ content:" \2192"; color:var(--accent); }
+  .ctas a:hover{ color:var(--accent); }
+  .proof-line{ margin-top:1.6rem; font-size:0.88rem; color:var(--muted); }
+  .hero .frame-fig{ margin-top:2rem; max-width:320px; }
+  @media (min-width:680px){ .hero .frame-fig{ margin-top:0; max-width:none; width:100%; } }
+
+  /* ---------- story ---------- */
+  .story{ padding-block:3rem; }
+  .story .lede{ font-weight:500; font-size:clamp(1.2rem,2.6vw,1.45rem); color:var(--ink); max-width:30ch; }
+  .story p{ margin-top:1.15rem; color:var(--muted); max-width:60ch; font-size:1.02rem; }
+  .story .closer{ margin-top:1.15rem; font-weight:600; color:var(--ink); max-width:54ch; }
+
+  /* ---------- how i tend to be useful ---------- */
+  .useful{ padding-block:2.5rem; }
+  .useful-h2{ font-size:clamp(1.3rem,2.6vw,1.6rem); margin-bottom:1.75rem; }
+  .useful-grid{ display:grid; grid-template-columns:1fr; gap:1.75rem; }
+  @media (min-width:680px){ .useful-grid{ grid-template-columns:repeat(3,1fr); gap:2rem; } }
+  .useful-item h3{ font-size:1.05rem; font-weight:600; margin-bottom:0.5rem; }
+  .useful-item p{ color:var(--muted); font-size:0.95rem; line-height:1.6; margin:0; max-width:34ch; }
+  .useful-tie{ margin-top:2.25rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--ink); font-weight:500; font-size:1.02rem; max-width:62ch; }
+
+  /* ---------- selected work ---------- */
+  .job{ margin-top:3rem; }
+  .job:first-of-type{ margin-top:0; }
+  .job .mark{ color:var(--accent); font-size:0.85rem; }
+  .job .role{ font-weight:600; font-size:1.05rem; margin-top:0.3rem; }
+  .job .role .co{ color:var(--muted); font-weight:400; }
+  .job .meta{ font-size:0.85rem; color:var(--faint); margin-top:0.15rem; }
+  .job p.story-p{ color:var(--muted); margin-top:0.75rem; max-width:60ch; line-height:1.65; }
+  .job p.story-p.stat-line{ color:var(--ink); font-weight:500; }
+  .job .frame-fig{ margin-top:1rem; max-width:340px; }
+
+  .earlier{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--line); }
+  .earlier-item{ padding-block:0.65rem; }
+  .earlier-item .t{ font-weight:600; font-size:0.96rem; }
+  .earlier-item .t .co{ font-weight:400; color:var(--muted); }
+  .earlier-item .t .yr{ color:var(--faint); font-weight:400; margin-left:0.6rem; }
+  .earlier-item p{ margin:0.3rem 0 0; color:var(--muted); font-size:0.9rem; max-width:62ch; }
+
+  /* ---------- things built ---------- */
+  .built-intro{ max-width:58ch; color:var(--muted); }
+  .card{ margin-top:2rem; padding-top:1.2rem; border-top:1px solid var(--line); }
+  .card summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:baseline; gap:0.75rem; }
+  .card summary::-webkit-details-marker{ display:none; }
+  .card h3{ font-weight:600; font-size:1rem; margin:0; }
+  .card .cat{ display:block; font-size:0.85rem; color:var(--faint); margin-top:0.25rem; }
+  .chev{ flex:none; color:var(--accent); font-size:0.85rem; transition:transform 0.15s ease; }
+  details[open] .chev{ transform:rotate(90deg); }
+  .card .headline-line{ font-size:0.95rem; margin-top:0.5rem; }
+  .card p{ color:var(--muted); margin:0.5rem 0 0; font-size:0.92rem; max-width:64ch; }
+  .card .more{ margin-top:0.7rem; }
+  .card .more .frame-fig{ margin-top:0.8rem; max-width:380px; }
+
+  .logbook{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--line); }
+  .logbook-sub{ color:var(--muted); font-size:0.92rem; margin:0 0 1.2rem; }
+  .lb-row{ padding-block:0.85rem; border-top:1px solid var(--line); }
+  .lb-row:first-of-type{ border-top:none; padding-top:0; }
+  .lb-row summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:baseline; gap:0.75rem; }
+  .lb-row summary::-webkit-details-marker{ display:none; }
+  .lb-left{ display:block; }
+  .lb-name{ font-weight:600; }
+  .lb-meta{ display:block; font-size:0.85rem; color:var(--faint); margin-top:0.2rem; }
+  .lb-body{ margin-top:0.6rem; color:var(--muted); font-size:0.92rem; max-width:64ch; }
+
+  /* ---------- life ---------- */
+  .life-block{ margin-top:2.75rem; padding-top:2.75rem; border-top:1px solid var(--line); }
+  .life-block:first-of-type{ margin-top:0; padding-top:0; border-top:none; }
+  .big-line{ font-weight:500; font-size:clamp(1.3rem,2.8vw,1.6rem); line-height:1.4; max-width:26ch; color:var(--ink); }
+  .life-block p.body{ margin-top:0.9rem; color:var(--muted); max-width:56ch; }
+  .bike-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.6rem; max-width:560px; }
+  .trail-meta{ font-size:0.9rem; color:var(--muted); margin-top:0.7rem; }
+  .trail-meta .arrow{ color:var(--accent); margin:0 0.15rem; }
+  .camino-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:1.4rem; max-width:640px; }
+  @media (max-width:520px){ .camino-grid{ grid-template-columns:1fr 1fr; } }
+  .adv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.6rem; max-width:520px; }
+  .adv-grid.lg{ max-width:640px; gap:1rem; }
+
+  /* ---------- contact / footer ---------- */
+  .contact-email{ display:inline-block; font-size:clamp(1.3rem,4vw,1.9rem); font-weight:600; color:var(--ink); }
+  .contact-email::after{ content:" \2192"; color:var(--accent); }
+  .contact-email:hover{ color:var(--accent); }
+  .contact-links{ margin-top:1.1rem; display:flex; gap:1.4rem; flex-wrap:wrap; font-size:0.92rem; }
+  .contact-links a{ color:var(--muted); }
+  .contact-links a:hover{ color:var(--accent); }
+  .contact-links a.linkedin{ color:#0A66C2; }
+  .contact-links a.linkedin:hover{ color:#0A66C2; opacity:0.8; }
+  footer{ padding:2rem 1.5rem 3rem; color:var(--faint); font-size:0.85rem; max-width:720px; margin-inline:auto; }
+  footer .foot-line{ max-width:58ch; }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="in nav" style="border-bottom:none;">
+    <span style="font-weight:600; color:var(--ink);">S.Z.</span>
+    <span>
+      <a href="#work">Work</a>
+      <a href="#built">Built</a>
+      <a href="#life">Life</a>
+      <a href="#contact">Contact</a>
+    </span>
+  </div>
+
+  <section class="hero in">
+    <div>
+      <h2 class="name">Simas Zavistauskas</h2>
+      <p class="headline">I'm a growth operator and builder in San Francisco. I've gone from building payments products at JPMorgan to selling at startups, automating GTM systems, and starting a variety of businesses along the way.</p>
+      <div class="ctas">
+        <a href="#work">Explore my work</a>
+        <a href="#built">Things I've built</a>
+        <a href="#contact">Say hello</a>
+      </div>
+      <p class="proof-line">Ex JPMorgan &middot; sold Teslas &middot; sold saunas &middot; walked to Santiago</p>
+    </div>
+    <figure class="frame-fig">
+      <div class="frame" style="--ar:4/5"><img src="images/portrait.jpg" alt="Simas on a mountain overlook, candid"></div>
+    </figure>
+  </section>
+
+  <section class="story in" aria-label="Introduction">
+    <p class="lede">I started selling things on the internet as a teenager.</p>
+    <p>That turned into marketing, student leadership, private equity, product management at JPMorgan, and eventually startup growth and sales. Along the way I've built websites, sold Teslas, sold saunas, automated sales systems, walked across Spain, organized Baltic tech events, and started more side projects than I can reasonably justify.</p>
+  </section>
+
+  <section class="useful in" aria-label="How I tend to be useful">
+    <h2 class="useful-h2">How I tend to be useful</h2>
+    <div class="useful-grid">
+      <div class="useful-item">
+        <h3>Distribution</h3>
+        <p>I'm usually thinking about why something grows, the positioning, message, channel, loop, or sales motion that gets it in front of the right people.</p>
+      </div>
+      <div class="useful-item">
+        <h3>People</h3>
+        <p>I like bringing interesting people into the same room. I've done that through teams, communities, events, customers, and organizations for most of my life.</p>
+      </div>
+      <div class="useful-item">
+        <h3>Product</h3>
+        <p>I like turning messy problems into products and systems people actually want to use, from enterprise payments infrastructure to AI tools and side projects.</p>
+      </div>
+    </div>
+    <p class="useful-tie">The work I enjoy most sits somewhere in the overlap: understand the customer, build the right thing, and figure out how to get people to care about it.</p>
+  </section>
+
+  <section id="work" class="in">
+    <div class="section-head">
+      <span class="eyebrow">Selected work</span>
+      <h2>Where I've worked</h2>
+      <p class="dek">The side projects, detours, and sauna business are below.</p>
+    </div>
+
+    <article class="job">
+      <p class="mark">&#8594; Building now</p>
+      <p class="role">Growth / Account Executive <span class="co">, Lighthouse</span></p>
+      <p class="meta">San Francisco &middot; 2026</p>
+      <p class="story-p">I joined an early stage immigration startup on the GTM side and ended up operating across growth, sales, and sales ops, building the machinery and selling through it myself.</p>
+      <p class="story-p stat-line">Closed <span class="num">$718K</span> across <span class="num">64</span> deals in about four months, with a <span class="num">44%</span> win rate and a <span class="num">$256K</span> peak month.</p>
+      <p class="story-p">I also built <span class="num">10</span> automated GTM workflows across n8n, Apollo, Perplexity, HubSpot, and Instantly, and led five engineers on an AI qualification system that cut manual lead review from roughly five minutes to seconds. Along the way, I landed accounts including Cursor and Thinking Machines Lab.</p>
+      <div class="frame-fig"><div class="frame" style="--ar:16/9"><img src="images/lighthouse.jpg" alt="At an industry conference, repping Lighthouse"></div><figcaption>Industry conference, repping Lighthouse</figcaption></div>
+    </article>
+
+    <article class="job">
+      <p class="role">Product Manager, Payments <span class="co">, JPMorgan Chase</span></p>
+      <p class="meta">San Francisco &middot; 2023 – 2026</p>
+      <p class="story-p">I spent three years learning how products get built inside one of the world's largest financial institutions, mostly around developer infrastructure, APIs, onboarding, and payments.</p>
+      <p class="story-p">One of the systems I led helped reduce enterprise integration time from <span class="num">~2 weeks</span> to <span class="num">3 days</span> across <span class="num">4,000+</span> clients. I also worked on onboarding infrastructure supporting <span class="num">2,800+</span> partner ecosystems and analytics spanning <span class="num">500M+</span> API events a month.</p>
+      <p class="story-p">Along the way, I identified <span class="num">~$1.5M</span> in annual platform savings, led a pod of engineers and a designer, and helped secure <span class="num">$2M</span> in continued investment after presenting the work to leadership.</p>
+      <div class="frame-fig"><div class="frame" style="--ar:16/9"><img src="images/jpmc.jpg" alt="Presenting to leadership at JPMorgan"></div><figcaption>Presented output from a 3 month incubator project to senior leaders at JPMorgan, including the CPO</figcaption></div>
+    </article>
+
+    <article class="job">
+      <p class="role">Sales Advisor <span class="co">, Tesla</span></p>
+      <p class="meta">Chicago &middot; 2023</p>
+      <p class="story-p">While still in college, I spent two months selling Teslas, mostly to see whether I'd actually enjoy sales.</p>
+      <p class="story-p">Top 25% regionally. About <span class="num">$1.5M</span> in product revenue. Turned out I liked it a lot.</p>
+      <div class="frame-fig"><div class="frame" style="--ar:16/9"><img src="images/tesla.jpg" alt="With a Tesla in Chicago"></div><figcaption>Tesla, Chicago</figcaption></div>
+    </article>
+
+    <div class="earlier">
+      <span class="eyebrow">Earlier chapters</span>
+      <div class="earlier-item">
+        <p class="t">Growth &amp; Strategy / PE Analyst <span class="co">, Beckway Ventures</span><span class="yr">&middot; 2022–2023</span></p>
+        <p>Private equity research, market analysis, acquisition sourcing, and operator/investor content, Chicago and New York. This is also where I found the niche I later built EquiLaunch around.</p>
+      </div>
+      <div class="earlier-item">
+        <p class="t">Digital Strategist <span class="co">, Status Group</span><span class="yr">&middot; 2020–2021</span></p>
+        <p>My first real growth marketing job: paid social, landing pages, content, experiments, and client work across about six accounts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="built" class="in">
+    <div class="section-head">
+      <h2>Things I've built &amp; tried</h2>
+      <p class="dek">Some worked. Some didn't. All of them taught me something.</p>
+    </div>
+
+    <details class="card">
+      <summary><span><h3>EquiLaunch</h3><span class="cat">Website / digital agency &middot; 2024–2025</span></span><span class="chev">&rarr;</span></summary>
+      <p>I kept coming across private equity firms and portfolio companies whose websites didn't match the quality of the businesses behind them, so I started an agency to fix that.</p>
+      <div class="more">
+        <p>I handled acquisition, outbound, discovery, project scoping, positioning, website strategy, client relationships, and coordinating designers and developers through delivery. My PE background at Beckway informed the initial niche.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span><h3>Leisure Premium</h3><span class="cat">Luxury sauna ecommerce &middot; 2023–2024</span></span><span class="chev">&rarr;</span></summary>
+      <div class="more">
+        <p>I wondered whether I could sell a wooden box worth several thousand dollars over the internet, so I tried.</p>
+        <p>I learned manufacturer and dealer relationships, sourcing, Shopify, Google Ads, shipping, warranties, and high ticket ecommerce. I also pursued bulk commercial orders and worked directly with manufacturers.</p>
+        <p><a href="https://canva.link/fk7b3vifvulcu1i" target="_blank" rel="noopener">View the pitch deck &rarr;</a></p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span><h3>ZaviFit</h3><span class="cat">Fitness ecommerce &middot; 2019–2020</span></span><span class="chev">&rarr;</span></summary>
+      <p>My first real ecommerce business, a Shopify store for health and fitness products.</p>
+      <div class="more">
+        <p>Facebook ads, product selection, copy, branding, fulfillment, analytics, landing pages, all taught myself. My 2020 résumé called me CEO. Technically true. There just weren't many employees.</p>
+      </div>
+    </details>
+
+    <div class="logbook">
+      <span class="eyebrow" style="margin-bottom:0.3rem;">The logbook</span>
+      <p class="logbook-sub">Smaller bets, rabbit holes, and things I'm still figuring out.</p>
+
+      <details class="lb-row">
+        <summary><span class="lb-left"><span class="lb-name">Telosys Health</span><span class="lb-meta">Premium wellness commerce &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
+        <p class="lb-body">An ecommerce and education layer for premium recovery equipment, red light, hyperbaric, that category, with heavier emphasis on supplier diligence and regulatory considerations than a typical store.</p>
+      </details>
+
+      <details class="lb-row">
+        <summary><span class="lb-left"><span class="lb-name">Apartment Sniper</span><span class="lb-meta">Rental alert product &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
+        <p class="lb-body">Good apartments in competitive cities disappear fast. You define your criteria, it watches listings, scores matches, and alerts you before you have to keep refreshing. Prototyped the whole thing with AI dev tools.</p>
+      </details>
+
+      <details class="lb-row">
+        <summary><span class="lb-left"><span class="lb-name">AI Visibility / GEO</span><span class="lb-meta">Current exploration &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
+        <p class="lb-body">Researching how brands become visible inside answers from ChatGPT, Claude, Gemini, and Perplexity, citations, outside authority, entity signals, comparison content, digital PR, and measurement.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="life" class="in">
+    <div class="section-head">
+      <span class="eyebrow">Life outside work</span>
+      <h2>Adventures</h2>
+    </div>
+
+    <div class="life-block">
+      <p class="big-line">Most problems feel smaller after a few hours on a bike.</p>
+      <p class="body">Road cycling is one of my favorite ways to spend time outside, long rides, finding new routes, getting out of San Francisco, and the particular combination of endurance and head clearing that comes from being on a bike for a few hours.</p>
+      <div class="bike-grid">
+        <figure class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/biking-ggbridge.jpg" alt="Riding across the Golden Gate Bridge"></div><figcaption>Road cycling, in motion</figcaption></figure>
+        <figure class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/biking-hawkhill.jpg" alt="Bike parked at Hawk Hill overlook"></div><figcaption>Scenic Bay Area ride</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="life-block">
+      <p class="big-line">Walked 360 miles across Spain.</p>
+      <p class="trail-meta">579.9 km &middot; 360.3 mi &middot; 23 days &middot; Bilbao <span class="arrow">&rarr;</span> Santiago</p>
+      <p class="body">Lots of thinking. Lots of strangers becoming friends. Lots of blisters.</p>
+      <div class="camino-grid">
+        <figure class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/camino-1.jpg" alt="Northern Spain countryside at dawn"></div><figcaption>Somewhere in northern Spain</figcaption></figure>
+        <figure class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/camino-2.jpg" alt="On the trail, full pack"></div><figcaption>On the trail</figcaption></figure>
+        <figure class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/camino-santiago.jpg" alt="Arrived at Santiago de Compostela cathedral"></div><figcaption>Santiago, day 23</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="life-block">
+      <p class="big-line">Also, Mount Shasta.</p>
+      <p class="body">Snow and altitude, mostly.</p>
+      <div class="adv-grid">
+        <figure class="frame-fig"><div class="frame" style="--ar:4/5"><img src="images/shasta-1.jpg" alt="Snowy summit view, Mount Shasta"></div><figcaption>Near the summit</figcaption></figure>
+        <figure class="frame-fig"><div class="frame" style="--ar:4/5"><img src="images/shasta-2.jpg" alt="Bundled up at the summit, Mount Shasta"></div><figcaption>Same trip, considerably colder</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="life-block">
+      <p class="big-line">Officiated my first wedding.</p>
+      <p class="body">For close friends, in Chicago. A very different kind of public speaking than I'm used to.</p>
+    </div>
+
+    <div class="life-block">
+      <p class="big-line">A little Baltic in San Francisco.</p>
+      <p class="body">I'm Lithuanian American and grew up around Chicago. In San Francisco, I've helped bring together Baltic founders, engineers, investors, and operators through community events, partly because I like tech, partly because I like Lithuania, and mostly because I like getting interesting people into the same room. I've organized a dozen or so of these, including one that got close to 100 people and picked up Swedish media coverage.</p>
+      <div class="adv-grid lg">
+        <figure class="frame-fig"><div class="frame" style="--ar:4/5"><img src="images/baltic-event.jpg" alt="Baltic community gathering, San Francisco"></div><figcaption>Baltic community event</figcaption></figure>
+        <figure class="frame-fig"><div class="frame" style="--ar:4/5"><img src="images/lithuania.jpg" alt="Sunset over a lake in Lithuania"></div><figcaption>Lithuania</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="in">
+    <div class="section-head">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Say hello.</h2>
+      <p class="dek">I like meeting people building interesting things.</p>
+    </div>
+    <a class="contact-email" href="mailto:simas.zavistauskas@gmail.com">simas.zavistauskas@gmail.com</a>
+    <div class="contact-links">
+      <a class="linkedin" href="https://www.linkedin.com/in/simas-zavistauskas/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume.pdf" download>Download resume</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="foot-line">Based in San Francisco. Usually building something, biking somewhere, traveling, or convincing people to come to a Baltic event.</p>
+  <p style="margin-top:0.6rem;">&copy; <span id="year"></span> Simas Zavistauskas</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
