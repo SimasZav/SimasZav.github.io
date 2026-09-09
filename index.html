@@ -128,6 +128,8 @@
   .lb-name{ font-weight:600; }
   .lb-meta{ display:block; font-size:0.85rem; color:var(--faint); margin-top:0.2rem; }
   .lb-body{ margin-top:0.6rem; color:var(--muted); font-size:0.92rem; max-width:64ch; }
+  .lb-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; margin-top:0.8rem; max-width:420px; }
+  .lb-grid .frame-fig{ max-width:none; }
 
   /* ---------- life ---------- */
   .life-block{ margin-top:3.5rem; }
@@ -287,13 +289,26 @@
       <p class="logbook-sub">Smaller bets, rabbit holes, and things I'm still figuring out.</p>
 
       <details class="lb-row">
+        <summary><span class="lb-left"><span class="lb-name">PodHero</span><span class="lb-meta">AI podcast digest &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
+        <p class="lb-body">Too many podcasts, not enough time. PodHero listens for you, pulling key ideas and quotes from the shows you follow into one weekly email so you can skip the ones that weren't worth it.</p>
+        <div class="lb-grid" style="grid-template-columns:2fr 1fr; align-items:start;">
+          <div class="frame-fig"><div class="frame" style="--ar:3/2"><img src="images/podhero-1.png" alt="PodHero landing page"></div></div>
+          <div class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/podhero-2.png" alt="PodHero weekly digest email"></div></div>
+        </div>
+      </details>
+
+      <details class="lb-row">
         <summary><span class="lb-left"><span class="lb-name">Telosys Health</span><span class="lb-meta">Premium wellness commerce &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
         <p class="lb-body">An ecommerce and education layer for premium recovery equipment, red light, hyperbaric, that category, with heavier emphasis on supplier diligence and regulatory considerations than a typical store.</p>
       </details>
 
       <details class="lb-row">
-        <summary><span class="lb-left"><span class="lb-name">Apartment Sniper</span><span class="lb-meta">Rental alert product &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
+        <summary><span class="lb-left"><span class="lb-name">PadAlert</span><span class="lb-meta">Rental alert product &middot; 2026</span></span><span class="chev">&rarr;</span></summary>
         <p class="lb-body">Good apartments in competitive cities disappear fast. You define your criteria, it watches listings, scores matches, and alerts you before you have to keep refreshing. Prototyped the whole thing with AI dev tools.</p>
+        <div class="lb-grid" style="grid-template-columns:3fr 2fr; align-items:start;">
+          <div class="frame-fig"><div class="frame" style="--ar:4/3"><img src="images/padalert-1.png" alt="PadAlert landing page"></div></div>
+          <div class="frame-fig"><div class="frame" style="--ar:3/4"><img src="images/padalert-2.png" alt="PadAlert preference form"></div></div>
+        </div>
       </details>
 
       <details class="lb-row">
